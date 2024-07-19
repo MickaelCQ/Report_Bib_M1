@@ -1,0 +1,162 @@
+%Mickael Coquerelle  -- CHU NIMES -- Frise chronologique activé de Biologie moléculaire  19/07/2024
+
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+
+%Import du code source pour constituer la frise
+\input{FriseCode}
+
+%Début du codage de la TimeLine
+\begin{document}
+
+%Largeur de l'image : \resizebox{longueur horizontale}{longueur verticale}{matière} 
+% Si soit longueur horizontale soit longueur verticale est un point d’exclamation ! alors l’autre argument est utilisé pour déterminer un facteur d’échelle appliqué aux deux directions. 
+\resizebox{\columnwidth}{!}{
+
+%Déclaration de l'environnement Tikzpicture  pour tracer l'image
+\begin{tikzpicture}[timespan={}]
+
+    %Montage de la bande noire et définition de son interval temporel
+   \timeline[custom interval=true]{2007,...,2026}
+      %Montage des phases temporelles
+     \begin{phases}
+       %Arg1 : position du centre du cercle avec une pondération fact 0>1
+       %Arg2 : la taille du cercle
+       %Arg3 : la couleur du cercle
+       %Phase avec SOD1 en Séquençage de Sanger 2008 - 2024:
+    \phase{between week=10 and 10 in 1,involvement degree =16cm,phase color=green!40!white}   %PHASE -01
+      %Phase ATXN2 et C90RF72 en Analyse de Fragment 2012 - aujourd'hui
+    \phase{between week=14 and 14 in 0,involvement degree =14cm,phase color=green!50!white}   %PHASE -02
+        %Phase FUS en séquencage de Sanger 2009 - 2017 :
+    \phase{between week=7 and 7 in 1,involvement degree =8cm,phase color=green!80!white}      %PHASE -03
+        %Phase OPTN en séquencage de Sanger 2010 - 2017 :
+    \phase{between week=7.5 and 9 in 0,involvement degree =7cm,phase color=green!70!black}    %PHASE -04
+        %Phase UBQLN en séquencage de Sanger 2011 - 2017 :
+    \phase{between week=8 and 9 in 0,involvement degree =6cm,phase color=green!60!black}      %PHASE -05
+        %Phase VCP en séquencage de Sanger 2013 - 2017 : 
+    \phase{between week=9 and 9 in 0,involvement degree =4cm,phase color=green!50!black}      %PHASE -06
+         %Phase avec NGS en librairie manuelle de 2017 - 2023:
+    \phase{between week=14 and 14 in 1,involvement degree =5.7cm,phase color=red!400!white}   %PHASE -07
+         %Phase avec NGS en librairie Hamilton de 2022 - aujourd'hui:
+    \phase{between week=17 and 17 in 1,involvement degree =3cm,phase color=red!400!white}     %PHASE -08
+        %Phase avec NGS EXOME et perspectives 2024 - Futur:
+    \phase{between week=19 and 20 in 0.8,involvement degree =4cm,phase color=red!400!white}   %PHASE -09
+       %Phase avec NGS Illumina, Exome et RNASeq:
+    \phase{between week=20 and 20 in 0.8,involvement degree =2cm,phase color=blue!400!white}  %PHASE -10
+    \phase{between week=20 and 20 in 0.8,involvement degree =2cm,phase color=blue!400!white}  %PHASE -11
+        %Phase 160 NGS / AN
+    \phase{between week=1 and 14 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -12
+    \phase{between week=1 and 14 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -13
+        %Phase 2 Biologistes:
+    \phase{between week=2 and 2 in 1,involvement degree =2cm,phase color=blue!400!white}      %PHASE -14
+    \phase{between week=2 and 2 in 1,involvement degree =2cm,phase color=blue!400!white}      %PHASE -15
+        %Phase 3 Biologistes + 1 ingénieur : 
+    \phase{between week=2 and 8 in 1,involvement degree =2cm,phase color=blue!400!white}      %PHASE -16
+    \phase{between week=2 and 8 in 1,involvement degree =2cm,phase color=blue!400!white}      %PHASE -17
+      %Phase 58 NGS / AN
+    \phase{between week=1 and 11 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -18
+    \phase{between week=1 and 11 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -19
+      %Phase 300 NGS / AN
+    \phase{between week=1 and 17 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -20
+    \phase{between week=1 and 17 in 1,involvement degree =2cm,phase color=orange!400!black}   %PHASE -21
+
+     \end{phases}
+       %Phase Accréditation COFFRAC 2020:
+       
+     
+    %Déclaration des nodes (noeuds haut et bas) et légende
+
+    %TITRE :
+    \node [xshift = 10cm,yshift=12cm,anchor=east,font=\LARGE\bfseries] at(phase-1){Diagnostic moléculaire de la SLA au CHU de Nîmes :};
+    \node [xshift = 11cm,yshift=11cm,anchor=east,font=\LARGE\bfseries] at(phase-1){chronologie des évolutions techniques et ressources humaines.};
+
+    %EFFECTIF MEDICAUX :
+    \node [xshift =1.25cm,yshift=9.2cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{2 BIO}};       %2008
+    \node [xshift =1.15cm,yshift=8.8cm,anchor=west,font=\Large] at(phase){\footnotesize(1 ETP)};               %2008
+    \node [xshift =6.4cm,yshift=9.2cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{3 BIO, 1 ING}}; %2014
+    \node [xshift =6.9cm,yshift=8.8cm,anchor=west,font=\Large] at(phase){\footnotesize(2 ETP)};                %2014
+    \node [xshift =17.8cm,yshift=9.2cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{2 BIM, 1 BIO}};%2025
+    \node [xshift =18.3cm,yshift=8.8cm,anchor=west,font=\Large] at(phase){\footnotesize(3.5 ETP)};             %2025
+    
+    % ACTIVITE NGS :
+    \node [xshift =9.6cm,yshift=9cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{58 NGS/an}};
+    \node [xshift =12cm,yshift=9cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{160 NGS/an}};
+    \node [xshift =15.2cm,yshift=9cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{300 NGS/an}};
+
+    %LEGENDE :
+    \node [xshift =22cm,yshift=-10.5cm,anchor=east,font=\Large\bfseries] at(phase){--------------------------------------------------- LEGENDE ---------------------------------------------------};
+    \node [xshift =4.6cm,yshift=-11.4cm,anchor=east,font=\Large] at(phase){\Large{BIM : Bioinformaticien}};
+    \node [xshift =3.05cm,yshift=-12cm,anchor=east,font=\Large] at(phase){\Large{ BIO : Biologiste}};
+    \node [xshift =2.99cm,yshift=-12.6cm,anchor=east,font=\Large] at(phase){\Large{ING : Ingénieur}};
+    \node [xshift =6.05cm,yshift=-13.2cm,anchor=east,font=\Large] at(phase){\Large{ETP : Equivalent temps plein}};
+    \node [xshift =12cm,yshift=-15cm,anchor=east,font=\footnotesize\bfseries] at(phase-1)
+    {\textcopyright 2024 - Mickael Coquerelle};
+
+    
+    %SANGER :
+    \node [xshift =2.5cm,yshift=-8.1cm,anchor=west,font=\Large] at(phase){\footnotesize{SEQUENCAGE DE SANGER}}; 
+    \node [xshift =9.2cm,yshift=-8.1cm,anchor=west,font=\Large] at(phase){\footnotesize{A.FRAGMENT}}; 
+    \node [xshift =1.1cm,yshift=-7.5cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{SOD1}}; %SOD1
+    \node [xshift =2.4cm,yshift=-7.5cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{FUS}}; %FUS
+    \node [xshift =3.5cm,yshift=-7.5cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{OPTN}}; %OPTN
+    \node [xshift =5.0cm,yshift=-7.55cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{UBQLN}}; %UBQLN
+    \node [xshift =7.1cm,yshift=-7.52cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{VCP}}; %VCP
+    \node [xshift =9.5cm,yshift=-7.54cm,anchor=west,font=\Large] at(phase){\footnotesize\bfseries{C9ORF72}}; %C9
+    %NGS  Manuel:
+    \node [xshift = 5.2cm,yshift=-8.05cm,anchor=east,font=\Large]at(phase-1){\footnotesize\bfseries{40 GENES}};
+    \node [xshift = 5.3cm,yshift=-8.5cm,anchor=east,font=\Large]at(phase-1){\footnotesize LIBRAIRIE};
+    \node [xshift = 5.4cm,yshift=-8.85cm,anchor=east,font=\Large]at(phase-1){\footnotesize MANUELLE};
+    \node [xshift = 5.5cm,yshift=-9.9cm,anchor=east,font=\footnotesize\bfseries]at(phase-1){Nextgene\textregistered};
+    \node [xshift = 5.5cm,yshift=-9.4cm,anchor=east,font=\footnotesize\bfseries]at(phase-1){Geneticist Assistant\textregistered};
+ 
+    %NGS Hamilton :
+    \node [xshift = 8.4cm,yshift=-8.05cm,anchor=east,font=\Large]at(phase-1){\footnotesize\bfseries{37 GENES}};
+    \node [xshift = 8.4cm,yshift=-8.5cm,anchor=east,font=\Large]at(phase-1){\footnotesize LIBRAIRIE};
+    \node [xshift = 8.45cm,yshift=-8.85cm,anchor=east,font=\Large]at(phase-1){\footnotesize HAMILTON};
+    \node [xshift =8.9cm,yshift=-9.4cm,anchor=east,font=\footnotesize\bfseries] at(phase-1){SOPHIA DDM\textregistered};
+
+    %FUTUR :
+    \node [xshift = 11.1cm,yshift=-8.05cm,anchor=east,font=\Large]at(phase-1){\footnotesize\bfseries {EXOME}};
+    \node [xshift = 11.5cm,yshift=-8.4cm,anchor=east,font=\Large]at(phase-1){\footnotesize Nextseq 2000\textregistered};
+    \node [xshift = 11.1cm,yshift=-8.8cm,anchor=east,font=\Large]at(phase-1){\footnotesize RNASeq};
+
+    %Déclaration des " milestones " (Jalons des différentes phases)
+    %Arg1 : identifiant de la phase précedemment déclaré, degré d'orientation antihoraire 90° = Sommet
+    %Arg2 : la direction de la fleche
+    %Arg3 : le texte de l'étiquette
+    \begin{scope}{text options={above}}
+    
+        %Au dessus de ma timeline :
+        %EFFECTIFS : 
+        \addmilestone{at=phase-14.90,direction=90:7.1cm,text={}}  %2 BIO (gras  1 ETP)
+        \addmilestone{at=phase-16.95,direction=90:7cm,text={}}  % 3 BIO (2 ETP), 1 ING
+        \addmilestone{at=phase-10.90,direction=90:7.1cm,text={}}% 2 BIM, 1 BIO (1 ETP)
+        
+        %EVOLUTION DU VOLUME NGS :
+        \addmilestone{at=phase-18.90,direction=90:7.1cm,text={\bfseries}} %58 NGS / an
+        \addmilestone{at=phase-13.90,direction=90:7.1cm,text={\bfseries}} %160 NGS / an
+        \addmilestone{at=phase-20.90,direction=90:7.1cm,text={\bfseries}} %300 NGS / an
+
+      \end{scope}
+      
+    \begin{scope}{text options={below}}
+        %Au dessous de ma timeline :
+        %SANGER : 
+         \addmilestone{at=phase-1.190,direction=270:6.3cm,text={\bfseries }}    %SOD1  
+         \addmilestone{at=phase-3.200,direction=270:6.3cm,text={\bfseries }}    %FUS 
+         \addmilestone{at=phase-4.210,direction=270:6cm,text={\bfseries }}      %OPTN 
+         \addmilestone{at=phase-5.225,direction=270:5.60cm,text={\bfseries }}   %UBQLN 
+         \addmilestone{at=phase-6.240,direction=270:6.05cm,text={\bfseries }}   %VCP 
+        %C9ORF72
+         \addmilestone{at=phase-2.245,direction=270:1.5cm,text={\bfseries}}     %C9ORF72 
+        %NGS :
+         \addmilestone{at=phase-7.280,direction=270:4.95cm,text={}}             %Lib manuelle (40 gènes)
+         \addmilestone{at=phase-8.305,direction=270:6.6cm,text={}}              %Lib Hamilton (37 gènes)
+         \addmilestone{at=phase-9.320,direction=270:6.5cm,text={}}              %NextSeq 2000, Exome, RNASeq
+
+    \end{scope}
+    
+\end{tikzpicture}
+} %Fermeture de resizebox
+\end{document}
